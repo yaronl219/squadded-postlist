@@ -1,13 +1,12 @@
 <template>
   <div class="like-container">
-      <div @click="onClickLike" class="heart-container">
-          <img v-if="like.likedAt" src="../assets/full-heart.svg" />
-          <img v-else src="../assets/empty-heart.svg" />
-      </div>
-      
-      <div class="like-count">
-      {{likeCount}}
-      </div>
+    <div @click="onClickLike" class="heart-container">
+      <img v-if="like.likedAt" src="../assets/full-heart.svg" />
+      <img v-else src="../assets/empty-heart.svg" />
+      <span class="like-count">
+        {{ likeCount }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -15,9 +14,9 @@
 export default {
   props: ["like"],
   methods: {
-      onClickLike() {
-          this.$emit('onLike')
-      }
+    onClickLike() {
+      this.$emit("onLike");
+    },
   },
   computed: {
     likeCount() {
@@ -35,5 +34,27 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+img {
+  width: 100%;
+}
+
+.like-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.heart-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  // position: absolute;
+}
+.like-count {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+}
 </style>

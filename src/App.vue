@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Posts list</h1>
+  <div class="app">
     <div class="posts-list-container">
       <PostItem v-for="post in postsToShow" :key="post.id" :post="post" />
     </div>
@@ -30,11 +29,28 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.posts-list-container{
-  width: 450px;
-  display: grid;
-  grid-template-rows: 1fr;
-  gap: 0.5rem;
+<style lang="scss" >
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.app {
+  display: flex; 
+  flex-direction: column;
+  background-color: #DDDDDD;
 }
+
+.posts-list-container{
+  // max-width: 450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 20rem));
+  gap: 0.5rem;
+  padding: 1rem; 
+}
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 </style>

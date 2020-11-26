@@ -12,12 +12,12 @@ let defaultPosts = [
         id: utilService.makeId(12),
         author: {
             id: 101,
-            img: '',
+            img: `https://robohash.org/101`,
             name: 'Gabriel'
         },
         product: {
-            title: 'Mountain fox notebook',
-            img: '',
+            title: 'Coffe cup and notebook',
+            img: "https://pixabay.com/images/download/coffee-2306471_640.jpg",
             price: 12.9,
             id: utilService.makeId(8),
         },
@@ -26,20 +26,20 @@ let defaultPosts = [
             likedAt: null
         },
         comment: [
-            { txt: 'Hello', timestamp: Date.now() - 10000, userImg: '', username: "Kelly" },
-            { txt: 'Hi', timestamp: Date.now() - 20000, userImg: '', username: "Menahem" }
+            { txt: 'Hello', timestamp: Date.now() - 10000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
+            { txt: 'Hi', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Menahem" }
         ]
     },
     {
         id: utilService.makeId(12),
         author: {
             id: 101,
-            img: '',
+            img: `https://robohash.org/101`,
             name: 'Gabriel'
         },
         product: {
-            title: 'Brown Bear Cushion',
-            img: '',
+            title: 'Beehive Cushion',
+            img: 'https://pixabay.com/images/download/orange-85821_640.jpg',
             price: 18.9,
             id: utilService.makeId(8),
         },
@@ -48,31 +48,31 @@ let defaultPosts = [
             likedAt: Date.now() - 10
         },
         comment: [
-            { txt: 'Wow', timestamp: Date.now() - 10000, userImg: '', username: "Kelly" },
-            { txt: 'Like!', timestamp: Date.now() - 20000 , userImg: '', username: "Steven"}
-]
+            { txt: 'Wow', timestamp: Date.now() - 10000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
+            { txt: 'Like!', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Steven" }
+        ]
     },
-{
-    id: utilService.makeId(12),
+    {
+        id: utilService.makeId(12),
         author: {
-        id: 102,
-            img: '',
-                name: 'Elysa'
-    },
-    product: {
-        title: 'Hummingbird cushion',
-            img: '',
-                price: 18.9,
-                    id: utilService.makeId(8),
+            id: 102,
+            img: `https://robohash.org/102`,
+            name: 'Elysa'
         },
-    like: {
-        likesAmount: 7,
+        product: {
+            title: 'Hummingbird cushion',
+            img: 'https://pixabay.com/images/download/t-shirt-1710578_640.jpg',
+            price: 18.9,
+            id: utilService.makeId(8),
+        },
+        like: {
+            likesAmount: 7,
             likedAt: null
+        },
+        comment: [
+            { txt: 'Nice!', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "John" }
+        ]
     },
-    comment: [
-        { txt: 'Nice!', timestamp: Date.now() - 20000,  userImg: '', username: "John" }
-    ]
-},
 ]
 
 
@@ -95,11 +95,11 @@ async function toggleLikePost(postId) {
     return posts
 }
 
-async function addComment(postId,commentTXT) {
+async function addComment(postId, commentTXT) {
     const comment = {
         txt: commentTXT,
         timestamp: Date.now(),
-        userImg: `https://robohash.org/${Date.now}`,
+        userImg: `https://robohash.org/you`,
         username: 'You'
     }
     const posts = await getPosts()
