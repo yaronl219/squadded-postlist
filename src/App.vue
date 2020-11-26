@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Posts list</h1>
+    <div class="posts-list-container">
+      <PostItem v-for="post in postsToShow" :key="post.id" :post="post" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PostItem from "./cmps/PostItem.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    PostItem,
+  },
+  computed: {
+    postsToShow() {
+      return this.$store.getters.postsToShow;
+    },
+  },
+  async created() {
+    this.loadPosts();
+  },
+  methods: {
+    async loadPosts() {
+      this.$store.dispatch({ type: "loadPosts" });
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+.posts-list-container{
+  width: 450px;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
 }
 </style>
