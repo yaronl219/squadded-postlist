@@ -55,7 +55,7 @@ export default {
   border-radius: 0.25rem;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  box-shadow: 0px 2px 2px 1px rgba(32, 32, 32, 0.6);
+  box-shadow: 0px 1px 1px 0px rgba(32, 32, 32, 0.6);
   form {
     display: flex;
     gap: 0.25rem;

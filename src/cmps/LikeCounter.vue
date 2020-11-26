@@ -3,7 +3,7 @@
     <div @click="onClickLike" class="heart-container">
       <img v-if="like.likedAt" src="../assets/full-heart.svg" />
       <img v-else src="../assets/empty-heart.svg" />
-      <span class="like-count">
+      <span v-bind:class="{ liked: like.likedAt }" class="like-count">
         {{ likeCount }}
       </span>
     </div>
@@ -56,5 +56,9 @@ img {
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.75rem;
+}
+
+.liked {
+    color:white;
 }
 </style>

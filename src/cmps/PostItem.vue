@@ -70,7 +70,7 @@ export default {
   display: flex;
   flex-direction: column;
 
-  box-shadow: 0px 3px 3px 1px rgba(32, 32, 32, 0.6);
+  box-shadow: 0px 1px 1px 0px rgba(32, 32, 32, 0.6);
   img {
     width: 100%;
   }

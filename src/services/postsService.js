@@ -16,7 +16,7 @@ let defaultPosts = [
             name: 'Gabriel'
         },
         product: {
-            title: 'Coffe cup and notebook',
+            title: 'Coffee cup and notebook',
             img: "https://pixabay.com/images/download/coffee-2306471_640.jpg",
             price: 12.9,
             id: utilService.makeId(8),
@@ -60,7 +60,7 @@ let defaultPosts = [
             name: 'Elysa'
         },
         product: {
-            title: 'Hummingbird cushion',
+            title: 'Red Tom Scott T-Shirt',
             img: 'https://pixabay.com/images/download/t-shirt-1710578_640.jpg',
             price: 18.9,
             id: utilService.makeId(8),
@@ -71,6 +71,26 @@ let defaultPosts = [
         },
         comment: [
             { txt: 'Nice!', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "John" }
+        ]
+    },
+    {
+        id: utilService.makeId(12),
+        author: {
+            id: 103,
+            img: `https://robohash.org/103`,
+            name: 'Angelika'
+        },
+        product: {
+            title: 'Sneakers',
+            img: "https://pixabay.com/images/download/shoes-1897708_640.jpg",
+            price: 32.9,
+            id: utilService.makeId(8),
+        },
+        like: {
+            likesAmount: 0,
+            likedAt: null
+        },
+        comment: [
         ]
     },
 ]

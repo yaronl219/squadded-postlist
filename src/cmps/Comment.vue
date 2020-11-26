@@ -8,7 +8,7 @@
         <span>{{ comment.username }}</span>
       </div>
     </div>
-    <div class="hr" />
+    
     <div class="comment-main">
       <p>{{ comment.txt }}</p>
     </div>
@@ -38,13 +38,15 @@ export default {
     padding: 0.5rem;
     border-radius: 0.25rem;
     background-color: #FAFAFA;
-    box-shadow: 0px 2px 2px 1px rgba(32, 32, 32, 0.6);
+    box-shadow: 0px 1px 1px 0px rgba(32, 32, 32, 0.6);
+    gap: 0.375rem;
 }
 
 
 .comment-header {
     display: flex;
     align-items: center;
+    box-shadow: 0px 1px 0px 0px rgba(32,32,32,0.8);
 }
 
 .hr {
@@ -60,9 +62,15 @@ p {
     width: 2rem;
     border-radius: 100%;
     overflow: hidden;
+    margin-right: 0.25rem;
 }
 
 img {
     width: 100%
+}
+
+.comment-footer {
+    color: #666;
+    font-size: 0.75rem;
 }
 </style>
