@@ -4,7 +4,8 @@ const { utilService } = require("./utilService")
 export const postsService = {
     getPosts,
     toggleLikePost,
-    addComment
+    addComment,
+    getUserDetails
 }
 
 let defaultPosts = [
@@ -26,8 +27,8 @@ let defaultPosts = [
             likedAt: null
         },
         comment: [
-            { txt: 'Hello', timestamp: Date.now() - 10000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
-            { txt: 'Hi', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Menahem" }
+            { txt: 'Hello', timestamp: utilService.getRandomInteger(Date.now()-7500000000,Date.now()-100000), userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
+            { txt: 'Hi', timestamp: utilService.getRandomInteger(Date.now()-7500000000,Date.now()-100000), userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Menahem" }
         ]
     },
     {
@@ -48,8 +49,8 @@ let defaultPosts = [
             likedAt: Date.now() - 10
         },
         comment: [
-            { txt: 'Wow', timestamp: Date.now() - 10000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
-            { txt: 'Like!', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Steven" }
+            { txt: 'Wow', timestamp: utilService.getRandomInteger(Date.now()-7500000000,Date.now()-100000), userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Kelly" },
+            { txt: 'Like!', timestamp: utilService.getRandomInteger(Date.now()-7500000000,Date.now()-100000), userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "Steven" }
         ]
     },
     {
@@ -70,7 +71,7 @@ let defaultPosts = [
             likedAt: null
         },
         comment: [
-            { txt: 'Nice!', timestamp: Date.now() - 20000, userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "John" }
+            { txt: 'Nice!', timestamp: utilService.getRandomInteger(Date.now()-7500000000,Date.now()-100000), userImg: `https://robohash.org/${utilService.makeId(12)}`, username: "John" }
         ]
     },
     {
@@ -115,6 +116,23 @@ async function toggleLikePost(postId) {
     return posts
 }
 
+async function getUserDetails(authorId) {
+    let posts = await getPosts()
+    console.log(posts)
+    posts = posts.filter(post => String(post.author.id) === authorId)
+    if (!posts || !posts.length) return null
+    const { id, img, name } = posts[0].author
+
+    const user = {
+        id,
+        img, 
+        name,
+        posts
+    }
+
+    return user
+}
+
 async function addComment(postId, commentTXT) {
     const comment = {
         txt: commentTXT,
@@ -124,7 +142,7 @@ async function addComment(postId, commentTXT) {
     }
     const posts = await getPosts()
     const post = posts.find(post => post.id === postId)
-    post.comment.push(comment)
+    post.comment.unshift(comment)
     _savePosts(posts)
     return posts
 

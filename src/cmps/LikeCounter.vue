@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img {
-  width: 100%;
-}
 
 .like-container {
   cursor: pointer;

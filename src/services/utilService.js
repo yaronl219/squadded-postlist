@@ -1,6 +1,7 @@
 export const utilService = {
     makeId,
-    parseTimestamp
+    parseTimestamp,
+    getRandomInteger
 }
 
 function makeId(length = 5) {
@@ -10,6 +11,10 @@ function makeId(length = 5) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return txt;
+}
+
+function getRandomInteger(min,max) {
+    return Math.round(Math.random() * (max - min) + min)
 }
 
 function parseTimestamp(timestamp) {

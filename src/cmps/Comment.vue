@@ -65,10 +65,6 @@ p {
     margin-right: 0.25rem;
 }
 
-img {
-    width: 100%
-}
-
 .comment-footer {
     color: #666;
     font-size: 0.75rem;

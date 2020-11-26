@@ -1,6 +1,6 @@
 <template>
   <div class="post-container">
-    <div class="post-header">
+    <div @click="onSelectUser" class="post-header">
       <div class="avatar-container">
         <img :src="post.author.img" alt="avatar" />
       </div>
@@ -59,6 +59,9 @@ export default {
     toggleCommentOpen() {
       this.isCommentsOpen = !this.isCommentsOpen;
     },
+    onSelectUser() {
+        this.$router.push(`user/${this.post.author.id}`);
+    }
   },
 };
 </script>
@@ -71,14 +74,13 @@ export default {
   flex-direction: column;
 
   box-shadow: 0px 1px 1px 0px rgba(32, 32, 32, 0.6);
-  img {
-    width: 100%;
-  }
+
 }
 
 .post-header {
   display: flex;
   padding: 0.125rem;
+  cursor: pointer;
   .avatar-container {
     width: 2rem;
     border-radius: 100%;
