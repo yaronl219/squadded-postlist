@@ -78,7 +78,7 @@ export default {
 
 .post-header {
   display: flex;
-  padding: 0.125rem 0.5rem;
+  padding: 0.125rem;
   .avatar-container {
     width: 2rem;
     border-radius: 100%;
